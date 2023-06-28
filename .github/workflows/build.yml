@@ -1,8 +1,6 @@
 name: Lint, Test and Build
 
-on:
-  push:
-    # branches: [main]
+on: pull_request
 
 jobs:
   lint:
@@ -37,3 +35,13 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  add-labels:
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: vikaspaldev/github-actions-101/.github/workflows/triage.yml@workflow-call
+    with:
+      config-path: .github/labeler.yml
+    secrets:
+      token: ${{ secrets.GITHUB_TOKEN }}

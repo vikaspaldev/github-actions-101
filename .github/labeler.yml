@@ -1,0 +1,11 @@
+# Add 'maths' to any changes within 'math' folder or any subfolders
+maths:
+  - src/math/**
+
+# Add '@domain/core' label to any change within the 'core' package
+'@domain/core':
+  - package/core/**
+
+# Add 'test' label to any change to *.test.js files within the source dir
+test:
+  - src/**/*.test.js
