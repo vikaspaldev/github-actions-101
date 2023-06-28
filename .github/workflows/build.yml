@@ -2,7 +2,10 @@ name: Lint, Test and Build
 
 on:
   push:
-    # branches: [main]
+    branches: [workflow-triggers]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
 
 jobs:
   lint:
