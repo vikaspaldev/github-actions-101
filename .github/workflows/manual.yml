@@ -2,7 +2,7 @@ name: Manual Workflow Run
 
 on:
   workflow_run:
-    workflows: [Lint, Test and Build]
+    workflows: ['Lint, Test and Build']
     types: [completed]
 
 jobs:
