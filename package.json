@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --passWithNoTests",
+    "build": "node src/build.js",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -19,12 +22,17 @@
   },
   "homepage": "https://github.com/vikaspaldev/github-actions-101#readme",
   "devDependencies": {
-    "eslint": "^8.43.0",
+    "eslint": "8.43.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.3",
+    "jest": "^29.5.0",
     "prettier": "^2.8.8"
+  },
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "word-wrap": "^1.2.3"
   }
 }
