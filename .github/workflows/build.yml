@@ -6,8 +6,17 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [16.x, 18.x]
+    runs-on: ${{ matrix.os }}
     steps:
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
       - uses: actions/checkout@v3
 
       - name: Install dependencies
@@ -17,8 +26,17 @@ jobs:
         run: npm run lint
 
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [16.x, 18.x]
+    runs-on: ${{ matrix.os }}
     steps:
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
       - uses: actions/checkout@v3
 
       - name: Install dependencies
@@ -28,8 +46,17 @@ jobs:
         run: npm run test
 
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [16.x, 18.x]
+    runs-on: ${{ matrix.os }}
     steps:
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
       - uses: actions/checkout@v3
 
       - name: Install dependencies
