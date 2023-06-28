@@ -46,6 +46,7 @@ jobs:
         run: npm run test
 
   build:
+    needs: [lint, test]
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
